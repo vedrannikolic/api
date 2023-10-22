@@ -2,10 +2,10 @@
 import { NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config/dist/config.service';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
-import { AppModule } from '../../api/src/app.module';
+import { AuthModule } from './auth.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AuthModule);
   const configService = app.get(ConfigService);
 
   const USER = configService.get('RABBITMQ_USER');
